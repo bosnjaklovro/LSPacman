@@ -27,6 +27,7 @@ public class View extends Application {
 
    Scene scene = null;
    private Pacman pacman = null;
+   private Ghost ghost = null;
 
    public static void main(String[] args) {
       // method inside the Application class, it will setup our program as a JavaFX
@@ -50,18 +51,18 @@ public class View extends Application {
       // create a scene with a specific size (width, height), connnect with the layout
       scene = new Scene(root, 618, 743);
 
-      
       Image map = new Image("map.png");
       BackgroundImage bMap = new BackgroundImage(map, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
             BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 
       Background bg = new Background(bMap);
       root.setBackground(bg);
-      
-      pacman = new Pacman();
 
-      root.getChildren().add(pacman);
-      
+      pacman = new Pacman();
+      ghost = new Ghost();
+
+      root.getChildren().addAll(pacman, ghost);
+
       // Update the animation timer.
       AnimationTimer timer = new AnimationTimer() {
          public void handle(long now) {
@@ -69,7 +70,7 @@ public class View extends Application {
 
          }
       };
-      //starts the timer
+      // starts the timer
       timer.start();
 
       handleMovement();
@@ -108,5 +109,16 @@ public class View extends Application {
                break;
          }
       });
+   }
+
+   /**
+    * ghost moves to the left side of the screen for 2 seconds
+    */
+   public void ghostMoveLeft() {
+      ghost.setPositionX(ghost.getPositionX() - 3);
+      
+
+   
+
    }
 }
