@@ -49,7 +49,7 @@ public class View extends Application {
       StackPane root = new StackPane();
 
       // create a scene with a specific size (width, height), connnect with the layout
-      scene = new Scene(root, 618, 743);
+      scene = new Scene(root, 720, 720);
 
       Image map = new Image("map.png");
       BackgroundImage bMap = new BackgroundImage(map, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
