@@ -10,25 +10,25 @@ public class Ghost extends ImageView{
     private Image image = null;
 
     public Ghost() {
-        this.postionX = 0;
-        this.postionY = 0;
+        this.postionX = -360;
+        this.postionY = -360;
 
         image = new Image("GhostOrange.png");
         this.setImage(image);
     }
 
     public void update() {
-        postionX += (int) (Math.random() * getGhostWidth() / 30);
-        postionY += (int) (Math.random() * getGhostHeight() / 30);
+        postionX += (int) (Math.random() * getGhostWidth() / 20);
+        postionY += (int) (Math.random() * getGhostHeight() / 20);
         this.setTranslateX(postionX);
         this.setTranslateY(postionY);
         this.setRotate(rotation);
 
         if (postionX > 800)
             postionX = 0;
-        if (postionY > 500)
+        if (postionY > 600)
             postionY = 0;
-            rotation += 1;
+            rotation += 0;
 
     } // end update()
 

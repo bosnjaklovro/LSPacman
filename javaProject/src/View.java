@@ -67,7 +67,7 @@ public class View extends Application {
       AnimationTimer timer = new AnimationTimer() {
          public void handle(long now) {
             pacman.update();
-
+            ghost.update();
          }
       };
       // starts the timer
@@ -112,13 +112,9 @@ public class View extends Application {
    }
 
    /**
-    * ghost moves to the left side of the screen for 2 seconds
+    *  update() method keeps the thread (ghost) alive and moving.
     */
-   public void ghostMoveLeft() {
-      ghost.setPositionX(ghost.getPositionX() - 3);
-      
+
 
    
-
-   }
 }
